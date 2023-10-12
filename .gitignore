@@ -1,3 +1,4 @@
 #ignore all node_modules folders as we only need the package.json file for that
 node_modules/
+#ignore db.config.js
 backend/app/config/db.config.js
