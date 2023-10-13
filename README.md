@@ -3,9 +3,9 @@ Basic Bingo web app originally created for LAN parties.
 
 v1.0.0 features:
 
-- [ ] Have one admin page (with an admin password) to generate Bingo sheets with an assigned title, id and array of words.
+- [ ] Have one admin page (with an admin password) to generate Bingo sheets with an assigned title (id and sentences in the tiles are generated in the back-end)
 
-- [ ] Have the backend read a .txt file and convert it into a MongoDB Document for the possible words to appear in a Bingo sheet.
+- [ ] Have the backend read a .txt file and convert it into a MongoDB Document for the possible sentences to appear in a Bingo sheet.
 
 - [ ] Generated sheets get a unique URL(probably the MongoDB id) that are shared to the participants of the Bingo game.
 

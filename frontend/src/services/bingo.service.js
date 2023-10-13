@@ -1,11 +1,12 @@
 import http from '../http-common';
 
 // This object will be initialised whenever we want to GET, POST, DELETE, PUT data
-class TutorialDataService {
+class BingoDataService {
 	get(id){
 		return http.get(`bingosheets/${id}`);
 	}
 	create(data){
+		console.log(`Creating from Data Service: ${data}`);
 		return http.post(`bingosheets/`, data);
 	}
 	update(id, data){
@@ -22,4 +23,4 @@ class TutorialDataService {
 	}
 }
 
-export default new TutorialDataService();
+export default new BingoDataService();

@@ -1,19 +1,44 @@
 const db = require("../models");
+const fs = require("fs");
 
 const Bingo = db.bingos;
+
+// TODO: Save into a sentenceArray the sentences within the sentenceList.txt (sentence: String)
+var sentenceArray; 
+fs.readFile('../config/sentenceList.txt', 'utf8', (err, data) => {
+	if (err) console.log(err);
+	sentenceArray = data.split('\n');
+});
 
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
 	// Check if the title is empty
-	if(!req.body.title || !req.body.tiles || !req.body.code){
-		res.status(400).send({message: 'Missing either Title/Tiles/Code.'});
+	if(!req.body.title){
+		res.status(500).send({message: 'Missing title.'});
 		return;
+	}
+	// TODO: Take sentenceArray and generate an array of 25 tile objects (sentence: String, status: Boolean) and save it to the tiles property of the new Bingo
+	function randomNoRepeats(array) {
+		var copy = array.split(0);
+		return function() {
+			if (copy.length < 1) { copy = array.slice(0); }
+			var index = Math.floor(Math.random() * copy.length);
+			var item = copy[index];
+			copy.splice(index, 1);
+			return item;
+		};
+	}
+	var getRandomSentence = randomNoRepeats(sentenceArray);
+	var tiles;
+	for (let i = 0;i < 25;i++){
+		tiles[i] = {
+			sentence: getRandomSentence(),
+			status: 0
 	}
 	// Create a Bingo
 	const bingo = new Bingo({
 		title: req.body.title,
-		tiles: req.body.tiles,
-		code: req.body.code
+		tiles: tiles
 	});
 	// Save the created Bingo to the database
 	Bingo
@@ -28,12 +53,12 @@ exports.create = (req, res) => {
 });
 };
 
-// Retrieve all Tutorials from the database.
+// Retrieve all  from the database.
 exports.findAll = (req, res) => {
 
 };
 
-// Find a single Tutorial with an id
+// Find a single  with an id
 exports.findOne = (req, res) => {
   	const id = req.params.id;
 
@@ -48,7 +73,7 @@ exports.findOne = (req, res) => {
 		});
 };
 
-// Update a Tutorial by the id in the request
+// Update a  by the id in the request
 exports.update = (req, res) => {
 	if (!req.body){
 		 res.status(400).send({
@@ -67,7 +92,7 @@ exports.update = (req, res) => {
 		.catch(err => {res.status(500).send({message: err.message});});
 };
 
-// Delete a Tutorial with the specified id in the request
+// Delete  with the specified id in the request
 exports.delete = (req, res) => {
 	const id = res.params.id;
 
@@ -79,7 +104,7 @@ exports.delete = (req, res) => {
 		.catch(err => {res.status(500).send({message: err.message});});
 };
 
-// Delete all Tutorials from the database.
+// Delete all  from the Bingo database.
 exports.deleteAll = (req, res) => {
 	Bingo.deleteMany({})
 		.then(data => {
