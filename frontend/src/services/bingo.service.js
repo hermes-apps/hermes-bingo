@@ -6,7 +6,6 @@ class BingoDataService {
 		return http.get(`bingosheets/${id}`);
 	}
 	create(data){
-		console.log(`Creating from Data Service: ${data}`);
 		return http.post(`bingosheets/`, data);
 	}
 	update(id, data){

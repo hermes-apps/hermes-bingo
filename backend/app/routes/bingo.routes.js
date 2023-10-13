@@ -1,5 +1,5 @@
 module.exports = app => {
-	const bingosheets = require("../controllers/tutorial.controller.js");
+	const bingosheets = require("../controllers/bingo.controller.js");
 	var router = require("express").Router();
 
 	// Create a new Bingo

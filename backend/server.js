@@ -5,9 +5,9 @@ const db = require("./app/models/");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-
+// TODO: Debug why I get a CORS Failed
 var corsOptions = {
-	origin: "http://localhost.com:8081"
+	origin: "http://localhost.com:8081/"
 }
 
 app.use(cors(corsOptions));
@@ -31,6 +31,8 @@ db.mongoose
 app.get("/", (req,res) => {
 	res.json({message: "Welcome to the Hermes Bingo application."});
 })
+// Add aditional API routes
+require("./app/routes/bingo.routes.js")(app);
 // listen for requests
 app.listen(PORT, () => {
 	console.log(`Server listening on port ${PORT}.`);

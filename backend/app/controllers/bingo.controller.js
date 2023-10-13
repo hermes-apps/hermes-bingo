@@ -5,7 +5,7 @@ const Bingo = db.bingos;
 
 // TODO: Save into a sentenceArray the sentences within the sentenceList.txt (sentence: String)
 var sentenceArray; 
-fs.readFile('../config/sentenceList.txt', 'utf8', (err, data) => {
+fs.readFile('./app/config/sentenceList.txt', 'utf8', (err, data) => {
 	if (err) console.log(err);
 	sentenceArray = data.split('\n');
 });

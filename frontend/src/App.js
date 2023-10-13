@@ -8,7 +8,7 @@ import BingoDataService from './services/bingo.service';
 const App = () => {
 	//Temporal for testing purposes
 	function createBingo(){
-		BingoDataService.create("Test Bingo")
+		BingoDataService.create({title: "test bingo"})
 			.then(response => {
 				console.log(response.data);
 			})
