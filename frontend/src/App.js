@@ -3,9 +3,8 @@ import './App.css';
 import React, {Component} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-class App extends Component {
-	render() {
-		// ...
-	}
+const App = () => {
+	return <h1>Herro</h1>;
 }
+
 export default App;
