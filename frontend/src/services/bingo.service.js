@@ -1,24 +1,25 @@
 import http from '../http-common';
 
+// This object will be initialised whenever we want to GET, POST, DELETE, PUT data
 class TutorialDataService {
 	get(id){
-		return http.get(`bingos/${id}`);
+		return http.get(`bingosheets/${id}`);
 	}
 	create(data){
-		return http.post(`bingos/`, data);
+		return http.post(`bingosheets/`, data);
 	}
 	update(id, data){
-		return http.put(`bingos/${id}`,  data);
+		return http.put(`bingosheets/${id}`,  data);
 	}
 	delete(id){
-		return http.delete(`bingos/${id}`);
+		return http.delete(`bingosheets/${id}`);
 	}
 	deleteAll(){
-		return http.delete("bingos/");
+		return http.delete("bingosheets/");
 	}
 	findByTitle(title){
-		return http.get("bingos/", title);
+		return http.get("bingosheets/", title);
 	}
-
 }
 
+export default new TutorialDataService();
