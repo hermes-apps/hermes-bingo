@@ -34,7 +34,7 @@ exports.create = (req, res) => {
 		tiles[i] = {
 			sentence: getRandomSentence(),
 			status: 0
-	}
+	}}
 	// Create a Bingo
 	const bingo = new Bingo({
 		title: req.body.title,
@@ -48,7 +48,7 @@ exports.create = (req, res) => {
 	})
 	.catch(err => {
 		res.status(500).send({
-			err.message || "Error saving the Bingo (No error msg)."
+			message: err.message || "Error saving the Bingo (No error msg)."
 		});
 });
 };
@@ -69,7 +69,7 @@ exports.findOne = (req, res) => {
 			else res.send(data);
 		})
 		.catch(err => {
-			res.status(500).send({"Error with Bingo: " + id});
+			res.status(500).send("Error with Bingo: " + id);
 		});
 };
 
