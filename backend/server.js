@@ -7,10 +7,11 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 // TODO: Debug why I get a CORS Failed
 var corsOptions = {
-	origin: "http://localhost.com:8081/"
+	origin: "http://localhost:8081/"
 }
 
-app.use(cors(corsOptions));
+// Temporarily using no corsOptions for troubleshooting
+app.use(cors());
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded

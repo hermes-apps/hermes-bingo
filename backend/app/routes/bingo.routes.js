@@ -14,4 +14,6 @@ module.exports = app => {
 	router.delete("/:id", bingosheets.delete);
 	// Delete all
 	router.delete("/", bingosheets.deleteAll);
+
+	app.use('/api/bingosheets', router);
 }
