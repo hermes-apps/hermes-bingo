@@ -11,7 +11,7 @@ var corsOptions = {
 }
 
 // Temporarily using no corsOptions for troubleshooting
-app.use(cors());
+app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
