@@ -1,6 +1,10 @@
 # hermes-bingo
 Basic Bingo web app originally created for LAN parties.
 
+Set up steps:
+- Clone repository
+- Install mongoDB
+
 v1.0.0 features:
 
 - [ ] Have one admin page (with an admin password) to generate Bingo sheets with an assigned title (id and sentences in the tiles are generated in the back-end)
