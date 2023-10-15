@@ -7,8 +7,9 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 // TODO: Debug why I get a CORS Failed
 var corsOptions = {
-	origin: "http://localhost:8081/"
+	origin: 'http://localhost:3000'
 }
+
 
 // Temporarily using no corsOptions for troubleshooting
 app.use(cors(corsOptions));
@@ -16,6 +17,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
+
 db.mongoose
 	.connect(db.url, {
 		useNewUrlParser: true,
@@ -34,6 +36,8 @@ app.get("/", (req,res) => {
 })
 // Add aditional API routes
 require("./app/routes/bingo.routes.js")(app);
+// Enable CORS pre-flight (for the initial OPTIONS request)
+app.options('*', cors());
 // listen for requests
 app.listen(PORT, () => {
 	console.log(`Server listening on port ${PORT}.`);

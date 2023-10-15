@@ -13,7 +13,15 @@ const App = () => {
 				console.log(response.data);
 			})
 			.catch(err => {
-				console.log(err);
+				if (err.response) {
+					console.log(err.response.data);
+					console.log(err.response.header);
+				} else if (err.request) {
+					console.log(err.request);
+				} else {
+					console.log(err.message);
+				}
+				console.log(err.config);
 			});
 	}
 	return <button onClick={createBingo}>Create Bingo</button>;
