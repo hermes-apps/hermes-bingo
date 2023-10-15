@@ -7,11 +7,10 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 // TODO: Debug why I get a CORS Failed
 var corsOptions = {
-	origin: 'http://localhost:3000'
+	origin: 'http://localhost:3000',
+	allowedHeaders: 'content-type'
 }
 
-
-// Temporarily using no corsOptions for troubleshooting
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -36,7 +35,7 @@ app.get("/", (req,res) => {
 })
 // Add aditional API routes
 require("./app/routes/bingo.routes.js")(app);
-// Enable CORS pre-flight (for the initial OPTIONS request)
+// CORS pre-flight (for the initial OPTIONS request)
 app.options('*', cors());
 // listen for requests
 app.listen(PORT, () => {
