@@ -1,6 +1,6 @@
 module.exports = app => {
 	const bingosheets = require("../controllers/bingo.controller.js");
-	var router = require("express").Router();
+	var router = require("express").Router(); 
 
 	// Create a new Bingo
 	router.post("/", bingosheets.create);
@@ -16,4 +16,4 @@ module.exports = app => {
 	router.delete("/", bingosheets.deleteAll);
 
 	app.use('/api/bingosheets', router);
-}
+

@@ -2,3 +2,5 @@
 node_modules/
 #ignore the sentenceList.txt
 sentenceList.txt
+#ignore .env
+.env
