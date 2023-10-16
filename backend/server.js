@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080;
 const IP = process.env.IP;
 // TODO: Debug why I get a CORS Failed
 var corsOptions = {
-	origin: `http://${IP}:3000`
+	origin: `http://localhost:3000`
 }
 
 app.use(cors());
@@ -30,11 +30,8 @@ db.mongoose
 		console.log(`Connection error: ${err}`);
 		process.exit();
 	});
-app.get("/", (req, res) => {
-	res.send({message:"connected to backend"});
-});
 // Add aditional API routes
-//require("./app/routes/bingo.routes.js")(app);
+require("./app/routes/bingo.routes.js")(app);
 // CORS pre-flight (for the initial OPTIONS request)
 app.options('*', cors());
 // listen for requests

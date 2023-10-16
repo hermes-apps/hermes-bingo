@@ -19,7 +19,7 @@ exports.create = (req, res) => {
 	}
 	// TODO: Take sentenceArray and generate an array of 25 tile objects (sentence: String, status: Boolean) and save it to the tiles property of the new Bingo
 	function randomNoRepeats(array) {
-		var copy = array.split(0);
+		var copy = array.slice(0);
 		return function() {
 			if (copy.length < 1) { copy = array.slice(0); }
 			var index = Math.floor(Math.random() * copy.length);
@@ -29,7 +29,7 @@ exports.create = (req, res) => {
 		};
 	}
 	var getRandomSentence = randomNoRepeats(sentenceArray);
-	var tiles;
+	var tiles = new Array();
 	for (let i = 0;i < 25;i++){
 		tiles[i] = {
 			sentence: getRandomSentence(),
