@@ -3,8 +3,9 @@ Basic Bingo web app originally created for LAN parties.
 
 Set up steps:
 - Clone repository
-- run `npm install` in the root folder
-- Install mongoDB
+- Run `npm install` in the root folder
+- Crate a `.env` file in the root folder of both frontend and backend folders, with the values `REACT_APP_IP=yourip` and `IP=yourip` respectively
+- Install MongoDB
 
 v1.0.0 features:
 

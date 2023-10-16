@@ -9,10 +9,10 @@ const PORT = process.env.PORT || 8080;
 const IP = process.env.IP;
 // TODO: Debug why I get a CORS Failed
 var corsOptions = {
-	origin: `http://localhost:3000`
+	origin: `http://${IP}:3000`
 }
 
-app.use(cors());
+app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded

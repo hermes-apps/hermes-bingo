@@ -7,7 +7,8 @@ const Bingo = db.bingos;
 var sentenceArray; 
 fs.readFile('./app/config/sentenceList.txt', 'utf8', (err, data) => {
 	if (err) console.log(err);
-	sentenceArray = data.split('\n');
+	//split the .txt by newlines and remove any empty items
+	sentenceArray = data.split('\n').filter(e=>e);
 });
 
 // Create and Save a new Tutorial
@@ -41,7 +42,7 @@ exports.create = (req, res) => {
 		tiles: tiles
 	});
 	// Save the created Bingo to the database
-	Bingo
+	bingo
 	.save(bingo)
 	.then(data => {
 		res.send(data);
