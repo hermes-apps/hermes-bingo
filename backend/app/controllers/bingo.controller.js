@@ -3,7 +3,6 @@ const fs = require("fs");
 
 const Bingo = db.bingos;
 
-// TODO: Save into a sentenceArray the sentences within the sentenceList.txt (sentence: String)
 var sentenceArray; 
 fs.readFile('./app/config/sentenceList.txt', 'utf8', (err, data) => {
 	if (err) console.log(err);
@@ -18,7 +17,6 @@ exports.create = (req, res) => {
 		res.status(500).send({message: 'Missing title.'});
 		return;
 	}
-	// TODO: Take sentenceArray and generate an array of 25 tile objects (sentence: String, status: Boolean) and save it to the tiles property of the new Bingo
 	function randomNoRepeats(array) {
 		var copy = array.slice(0);
 		return function() {
@@ -56,7 +54,15 @@ exports.create = (req, res) => {
 
 // Retrieve all  from the database.
 exports.findAll = (req, res) => {
-
+	Bingo.find()
+		.then(data => {
+			if(!data)
+				res.status(404).send({message: "Couldn't find any Bingo Sheets"});
+			else res.send(data);
+		})
+		.catch(err => {
+			res.status(500).send({message: err.message});
+		});
 };
 
 // Find a single  with an id

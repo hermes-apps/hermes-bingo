@@ -24,7 +24,28 @@ const App = () => {
 				console.log(err.config);
 			});
 	}
-	return <button onClick={createBingo}>Create Bingo</button>;
+	// TODO: Function to retreive a list of all Bingo Sheets (title & id)
+	function listBingos(){
+		BingoDataService.getAll()
+			.then(response => {
+				console.log(response.data);
+			})
+			.catch(err => {
+				if (err.response) {
+					console.log(err.response.data);
+					console.log(err.response.header);
+				} else if (err.request) {
+					console.log(err.request);
+				} else {
+					console.log(err.message);
+				}
+				console.log(err.config);
+			});
+	}
+	return 	<>
+			<button onClick={createBingo}>Create Bingo</button>
+			<button onClick={listBingos}>List Bingo Sheets</button>
+		</>;
 }
 
 export default App;

@@ -5,6 +5,9 @@ class BingoDataService {
 	get(id){
 		return http.get(`bingosheets/${id}`);
 	}
+	getAll(){
+		return http.get("bingosheets/");
+	}
 	create(data){
 		return http.post(`bingosheets/`, data);
 	}
