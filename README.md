@@ -19,6 +19,6 @@ v1.0.0 features:
 
 - [ ] Generated sheets get a unique URL(probably the MongoDB id) that are shared to the participants of the Bingo game.
 
-- [ ] Have a MongoDB Document to store every session of a Bingo Sheet.
+- [x] Have a MongoDB Document to store every session of a Bingo Sheet.
 
 - [ ] Have a basic UI for Bingo sheets where you can click on a Bingo tile to change its state (visually and in the DB).

@@ -17,9 +17,9 @@ class BingoDataService {
 	delete(id){
 		return http.delete(`bingosheets/${id}`);
 	}
-	deleteAll(){
-		return http.delete("bingosheets/");
-	}
+//	deleteAll(){
+//		return http.delete("bingosheets/");
+//	}
 	findByTitle(title){
 		return http.get("bingosheets/", title);
 	}
