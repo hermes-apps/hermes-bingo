@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import BingoDataService from '../services/bingo.service';
 
 import './ControlPanel.css'
+import Button from '../components/ui-elements/Button';
 
 const ControlPanel = (props) => {
 	// TODO: Load the current list of Bingo Sheets on a list (create bingolist.js?)
@@ -44,6 +45,8 @@ const ControlPanel = (props) => {
 
 	return <>
 		<h1>Control Panel placeholder</h1>
+		<Button>Create Bingo</Button>
+
 	</>;
 }
 
