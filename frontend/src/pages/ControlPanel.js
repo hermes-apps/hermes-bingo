@@ -45,7 +45,7 @@ const ControlPanel = (props) => {
 
 	return <>
 		<h1>Control Panel placeholder</h1>
-		<Button>Create Bingo</Button>
+		<Button onClick={createBingo}>Create Bingo</Button>
 
 	</>;
 }
