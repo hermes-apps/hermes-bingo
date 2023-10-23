@@ -8,7 +8,8 @@ const ControlPanel = (props) => {
 	// TODO: Load the current list of Bingo Sheets on a list (create bingolist.js?)
 	// TODO: Create a Create Bingo Sheet button that will create a random sheet and update the bingo list
 	const [bingoList, setBingoList] = useState();
-	function createBingo(){
+	const createBingo = () => {
+		// Improve this so it accepts a string param for the Bingo Sheet title
 		BingoDataService.create({title: "test bingo"})
 			.then(response => {
 				console.log(response.data);
@@ -25,7 +26,7 @@ const ControlPanel = (props) => {
 				console.log(err.config);
 			});
 	}
-	function listBingos(){
+	const listBingos = () => {
 		BingoDataService.getAll()
 			.then(response => {
 				console.log(response.data);
@@ -42,11 +43,13 @@ const ControlPanel = (props) => {
 				console.log(err.config);
 			});
 	}
-
+	
 	return <>
-		<h1>Control Panel placeholder</h1>
-		<Button onClick={createBingo}>Create Bingo</Button>
-
+		<ul>
+			<li><h1>Control Panel placeholder</h1></li>
+			<li><Button onClick={createBingo}>Create Bingo</Button></li>
+			<li><Button onClick={listBingos}>List Bingos</Button></li>
+		</ul>
 	</>;
 }
 
