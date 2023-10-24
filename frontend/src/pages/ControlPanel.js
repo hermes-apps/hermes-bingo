@@ -46,11 +46,13 @@ const ControlPanel = (props) => {
 			});
 	}
 	
+	// Update the Bingo list on page load
+	listBingos();
+	
 	return <>
 		<ul>
-			<li><h1>Control Panel placeholder</h1></li>
-			<li><Button onClick={createBingo}>Create Bingo</Button></li>
-			<li><Button onClick={listBingos}>List Bingos</Button></li>
+			<li><h1>Control Panel</h1></li>
+			<li><Button onClick={() => {createBingo(); listBingos();}}>Create Bingo</Button></li>
 		</ul>
 		<div className="BingoSheetList"><BingoSheetList bingoSheets={bingoList}/></div>
 	</>;
