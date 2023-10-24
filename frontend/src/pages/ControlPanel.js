@@ -3,6 +3,7 @@ import BingoDataService from '../services/bingo.service';
 
 import './ControlPanel.css'
 import Button from '../components/ui-elements/Button';
+import BingoSheetList from '../components/BingoSheetList';
 
 const ControlPanel = (props) => {
 	// TODO: Load the current list of Bingo Sheets on a list (create bingolist.js?)
@@ -30,6 +31,7 @@ const ControlPanel = (props) => {
 		BingoDataService.getAll()
 			.then(response => {
 				console.log(response.data);
+				setBingoList(response.data);
 			})
 			.catch(err => {
 				if (err.response) {
@@ -50,6 +52,7 @@ const ControlPanel = (props) => {
 			<li><Button onClick={createBingo}>Create Bingo</Button></li>
 			<li><Button onClick={listBingos}>List Bingos</Button></li>
 		</ul>
+		<div className="BingoSheetList"><BingoSheetList bingoSheets={bingoList}/></div>
 	</>;
 }
 
