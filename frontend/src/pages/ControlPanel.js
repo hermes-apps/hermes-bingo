@@ -10,6 +10,7 @@ const ControlPanel = (props) => {
 	// TODO: Create a Create Bingo Sheet button that will create a random sheet and update the bingo list
 	const [bingoList, setBingoList] = useState();
 	const [keyword, setKeyword] = useState();
+	const [newBingoName, setNewBingoName] = useState();
 
 	// Run this on load
 	useEffect(() => {
@@ -17,7 +18,7 @@ const ControlPanel = (props) => {
 	}, []); // empty dependencies array
 	const createBingo = () => {
 		// Improve this so it accepts a string param for the Bingo Sheet title
-		BingoDataService.create({title: "test bingo"})
+		BingoDataService.create({title: newBingoName})
 			.then(response => {
 				console.log(response.data);
 				listBingos();
@@ -76,10 +77,10 @@ const ControlPanel = (props) => {
 	return <>
 		<ul>
 			<li><h1>Control Panel</h1></li>
-			<li><Button onClick={createBingo}>Create Bingo</Button></li>
+			<li><input value={newBingoName} onChange={e => setNewBingoName(e.target.value)}/> <Button onClick={createBingo}>Create Bingo</Button></li>
 			<li><input value={keyword} onChange={e => setKeyword(e.target.value)}/><Button onClick={deleteBingos}>Delete Bingos</Button></li>
 		</ul>
-		<div className="BingoSheetList"><BingoSheetList bingoSheets={bingoList}/></div>
+			<div className="BingoSheetList"><BingoSheetList bingoSheets={bingoList}/></div>
 	</>;
 }
 
