@@ -14,12 +14,12 @@ class BingoDataService {
 	update(id, data){
 		return http.put(`bingosheets/${id}`,  data);
 	}
-	delete(id){
-		return http.delete(`bingosheets/${id}`);
+	delete(id, keyword){
+		return http.delete(`bingosheets/${id}`, keyword);
 	}
-//	deleteAll(){
-//		return http.delete("bingosheets/");
-//	}
+	deleteAll(keyword){
+		return http.delete(`bingosheets/all/${keyword}`);
+	}
 	findByTitle(title){
 		return http.get("bingosheets/", title);
 	}

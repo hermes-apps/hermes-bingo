@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BingoDataService from '../services/bingo.service';
 
 import './ControlPanel.css'
@@ -9,11 +9,18 @@ const ControlPanel = (props) => {
 	// TODO: Load the current list of Bingo Sheets on a list (create bingolist.js?)
 	// TODO: Create a Create Bingo Sheet button that will create a random sheet and update the bingo list
 	const [bingoList, setBingoList] = useState();
+	const [keyword, setKeyword] = useState();
+
+	// Run this on load
+	useEffect(() => {
+		listBingos();
+	}, []); // empty dependencies array
 	const createBingo = () => {
 		// Improve this so it accepts a string param for the Bingo Sheet title
 		BingoDataService.create({title: "test bingo"})
 			.then(response => {
 				console.log(response.data);
+				listBingos();
 			})
 			.catch(err => {
 				if (err.response) {
@@ -45,14 +52,32 @@ const ControlPanel = (props) => {
 				console.log(err.config);
 			});
 	}
+
 	
-	// Update the Bingo list on page load
-	listBingos();
+	const deleteBingos = ()  => {
+		BingoDataService.deleteAll(keyword)
+			.then(response => {
+				console.log(response.data);
+				listBingos();
+			})
+			.catch(err => {
+				if (err.response) {
+					console.log(err.response.data);
+					console.log(err.response.header);
+				} else if (err.request) {
+					console.log(err.request);
+				} else {
+					console.log(err.message);
+				}
+				console.log(err.config);
+			});
+	}
 	
 	return <>
 		<ul>
 			<li><h1>Control Panel</h1></li>
-			<li><Button onClick={() => {createBingo(); listBingos();}}>Create Bingo</Button></li>
+			<li><Button onClick={createBingo}>Create Bingo</Button></li>
+			<li><input value={keyword} onChange={e => setKeyword(e.target.value)}/><Button onClick={deleteBingos}>Delete Bingos</Button></li>
 		</ul>
 		<div className="BingoSheetList"><BingoSheetList bingoSheets={bingoList}/></div>
 	</>;

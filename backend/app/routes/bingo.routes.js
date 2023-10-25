@@ -13,7 +13,7 @@ module.exports = app => {
 	// Delete by id
 	router.delete("/:id", bingosheets.delete);
 	// Delete all
-	router.delete("/", bingosheets.deleteAll);
+	router.delete("/all/:keyword", bingosheets.deleteAll);
 
 	app.use('/api/bingosheets', router);
 }

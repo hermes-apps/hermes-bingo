@@ -101,6 +101,7 @@ exports.update = (req, res) => {
 
 // Delete  with the specified id in the request
 exports.delete = (req, res) => {
+	if (req.body.keyword === "ok"){
 	const id = res.params.id;
 
 	Bingo.findByIdAndRemove(id)
@@ -109,13 +110,16 @@ exports.delete = (req, res) => {
 			else res.send({message: `Deleted Bingo: ${id}`});
 		})
 		.catch(err => {res.status(500).send({message: err.message});});
+	}
 };
 
 // Delete all  from the Bingo database.
 exports.deleteAll = (req, res) => {
+	if (req.params.keyword === "ok"){
 	Bingo.deleteMany({})
 		.then(data => {
 			res.send({message: `${data.deletedCount} amount of Bingos deleted`});
 		})
 		.catch(err => {res.send({message: err.message});});
+	}
 };
