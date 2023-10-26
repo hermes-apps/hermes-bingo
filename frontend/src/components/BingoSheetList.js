@@ -1,9 +1,8 @@
 import React from 'react';
-
-// TODO: Fix the fact that it won't let this function be used in the onClick property: Expected `onClick` listener to be a function, instead got a value of `object` type.
-const HandleCopyClick = async (id) =>  {
+// Copying to clipboard is disable as long as we don't have an https connection, which we don't and probably won't have. If we ever do... delete this comment, I guess.
+const HandleCopyClick = (id) => (event) =>  {
 	try {
-		await navigator.clipboard.writeText(`http://${process.env.REACT_APP_IP}:3000/${id}`);} catch(err){console.error("unable to copy to clipboard", err);}
+		navigator.clipboard.writeText(`http://${process.env.REACT_APP_IP}:3000/${id}`);} catch(err){console.error("unable to copy to clipboard", err);}
 };
 
 const BingoSheetList = (props) => {
