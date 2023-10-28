@@ -6,8 +6,6 @@ import Button from '../components/ui-elements/Button';
 import BingoSheetList from '../components/BingoSheetList';
 
 const ControlPanel = (props) => {
-	// TODO: Load the current list of Bingo Sheets on a list (create bingolist.js?)
-	// TODO: Create a Create Bingo Sheet button that will create a random sheet and update the bingo list
 	const [bingoList, setBingoList] = useState();
 	const [keyword, setKeyword] = useState();
 	const [newBingoName, setNewBingoName] = useState();
@@ -17,7 +15,6 @@ const ControlPanel = (props) => {
 		listBingos();
 	}, []); // empty dependencies array
 	const createBingo = () => {
-		// Improve this so it accepts a string param for the Bingo Sheet title
 		BingoDataService.create({title: newBingoName})
 			.then(response => {
 				console.log(response.data);
@@ -54,7 +51,6 @@ const ControlPanel = (props) => {
 			});
 	}
 
-	
 	const deleteBingos = ()  => {
 		BingoDataService.deleteAll(keyword)
 			.then(response => {
