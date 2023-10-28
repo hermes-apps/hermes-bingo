@@ -1,12 +1,19 @@
 import React from 'react';
-import Router from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './App.css';
 import BingoDataService from './services/bingo.service';
 import ControlPanel from './pages/ControlPanel';
+import ErrorPage from './pages/ErrorPage';
+
+const router = createBrowserRouter([
+	{
+		errorElement: <ErrorPage /> 
+	}
+]);
 
 const App = () => {
-	return <ControlPanel/>; 
+	return <RouterProvider router={router}/>;
 }
 
 export default App;
