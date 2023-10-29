@@ -1,7 +1,7 @@
 import  React, { useState } from 'react';
 import BingoDataService from '../services/bingo.service';
 
-import './bingosheet.css';
+import './BingoSheet.css';
 
 const BingoSheet = (props) => {
 	const [bingoMatrix, setBingoMatrix] = useState();
