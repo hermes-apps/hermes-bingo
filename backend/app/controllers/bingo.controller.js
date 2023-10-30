@@ -76,7 +76,7 @@ exports.findOne = (req, res) => {
 			else res.send(data);
 		})
 		.catch(err => {
-			res.status(500).send("Error with Bingo: " + id);
+			res.status(500).send(err);
 		});
 };
 
