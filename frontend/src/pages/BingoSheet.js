@@ -9,7 +9,11 @@ const BingoSheet = (props) => {
 	const { id } = useParams();
 	const [bingo, setBingo] = useState({title: 'loading'});
 	const createBingoMatrix = array => {
-	// TODO: turn the bingo array into a matrix
+		for (var i = 0;i < 5;i++){
+			for (var j = 0;i < 5;i++){
+				
+			}
+		}
 	}
 
 	const loadBingo = (id) => {
