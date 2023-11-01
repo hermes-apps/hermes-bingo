@@ -9,9 +9,11 @@ const BingoSheet = (props) => {
 	const { id } = useParams();
 	const [bingo, setBingo] = useState({title: 'loading'});
 	const createBingoMatrix = array => {
+		const iterator = array.values();
+		// Put the values of the array in the matrix through iterator.next()
 		for (var i = 0;i < 5;i++){
 			for (var j = 0;i < 5;i++){
-				
+				bingoMatrix[][] = array.
 			}
 		}
 	}
@@ -20,7 +22,7 @@ const BingoSheet = (props) => {
 		BingoDataService.get(id)
 			.then(response => {
 				setBingo(response.data);
-				// TODO: call setBingoMatrix(createBingoMatrix(bingo) once the function is done	
+				// TODO: call setBingoMatrix(createBingoMatrix(bingo.tiles) once the function is done	
 				console.log(response.data);
 			})
 			.catch(err => {
