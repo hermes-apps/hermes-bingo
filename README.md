@@ -17,7 +17,7 @@ v1.0.0 features:
 
 - [x] Have the backend read a .txt file and convert it into an array for the possible sentences to appear in a Bingo sheet.
 
-- [ ] Generated sheets get a unique URL(probably the MongoDB id) that are shared to the participants of the Bingo game.
+- [x] Generated sheets get a unique URL(probably the MongoDB id) that are shared to the participants of the Bingo game.
 
 - [x] Have a MongoDB Document to store every session of a Bingo Sheet.
 
