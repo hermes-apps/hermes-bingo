@@ -5,24 +5,31 @@ import { useParams } from 'react-router-dom';
 import './BingoSheet.css';
 
 const BingoSheet = (props) => {
-	const [bingoMatrix, setBingoMatrix] = useState();
+	const [bingoMatrix, setBingoMatrix] = useState([]);
 	const { id } = useParams();
 	const [bingo, setBingo] = useState({title: 'loading'});
 	const createBingoMatrix = array => {
 		const iterator = array.values();
-		// Put the values of the array in the matrix through iterator.next()
+		let returnMatrix = [];
+		let tileRow = [];
+		let actualIndex = 0;
 		for (var i = 0;i < 5;i++){
-			for (var j = 0;i < 5;i++){
-				bingoMatrix[][] = array.
+			for (var j = 0;j < 5;j++){
+				tileRow.push({id: actualIndex, text: array[actualIndex].sentence});
+				actualIndex++;
 			}
+			returnMatrix.push(tileRow);
+			tileRow = [];
 		}
+
+		setBingoMatrix(returnMatrix);	
 	}
 
 	const loadBingo = (id) => {
 		BingoDataService.get(id)
 			.then(response => {
 				setBingo(response.data);
-				// TODO: call setBingoMatrix(createBingoMatrix(bingo.tiles) once the function is done	
+				createBingoMatrix(response.data.tiles);
 				console.log(response.data);
 			})
 			.catch(err => {
@@ -38,14 +45,19 @@ const BingoSheet = (props) => {
 			});
 	}
 
-	// Run this on load
+	//// Run this on load
 	useEffect(() => {
 		loadBingo(id);	
 	}, []); // empty dependencies array
 	
 	// TODO: map bingoMatrix into jsx
 	// TODO: Put a listener on each tile to toggle that tile value in the db and set use state
-	return <h1>{bingo.title}</h1>;	
+	return 	<div>
+			<h1>{bingo.title}</h1>
+			<div>
+				{bingoMatrix.map(row => <div className="row">{row.map(tile => <div key={tile.id} className="tile">{tile.text}</div>)}</div>)}
+			</div>
+		</div>;	
 
 }
 
