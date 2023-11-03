@@ -3,6 +3,7 @@ import BingoDataService from '../services/bingo.service';
 import { useParams } from 'react-router-dom';
 
 import './BingoSheet.css';
+import BingoGrid from '../components/BingoGrid';
 
 const BingoSheet = (props) => {
 	const [bingoMatrix, setBingoMatrix] = useState([]); // This is a two dimensional array holding the sheet, representing a 5x5 grid, the first array contains the row (0 to 4), the arrays inside contain each tile object (id, text)
@@ -52,11 +53,9 @@ const BingoSheet = (props) => {
 
 	// TODO: Create proper React element for Tile
 	// TODO: Put a listener on each tile to toggle that tile value in the db and set use state
-	return 	<div>
-			<h1>{bingo.title}</h1>
-			<div>
-				{bingoMatrix.map(row => <div className="row">{row.map(tile => <div key={tile.id} className="tile">{tile.text}</div>)}</div>)}
-			</div>
+	return 	<div style={{height: '100%'}}>
+		<div style={{height: '5%', textAlign: 'center', vertiicalAlign: 'middle', margin: '0px'}}><h1 style={{margin: '0px'}}>{bingo.title}</h1></div>
+			<BingoGrid bingoMatrix={bingoMatrix} />
 		</div>;	
 
 }

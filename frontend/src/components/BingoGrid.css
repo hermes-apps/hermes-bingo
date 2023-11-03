@@ -1,0 +1,43 @@
+.BingoGrid__Row__Tile {
+	background-color: #2B2B2B;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	vertical-align: middle;
+	justify-content: center;
+	width: 20%;
+	margin: 10px;
+	overflow: hidden;
+/*	border-radius: 10px;*/
+}
+
+.BingoGrid {
+	width: 100%;
+	height: 95%;
+	display: grid;
+}
+
+.BingoGrid>div {
+	display: flex;
+	grid-column: 1/5;
+}
+
+.BingoGrid__Row--0 {
+	grid-row: 1;
+}
+
+.BingoGrid__Row--1 {
+	grid-row: 2;
+}
+
+.BingoGrid__Row--2 {
+	grid-row: 3;
+}
+
+.BingoGrid__Row--3 {
+	grid-row: 4;
+}
+
+.BingoGrid__Row--4 {
+	grid-row: 5;
+}
