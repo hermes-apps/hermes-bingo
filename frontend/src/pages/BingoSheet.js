@@ -54,8 +54,8 @@ const BingoSheet = (props) => {
 	// TODO: Create proper React element for Tile
 	// TODO: Put a listener on each tile to toggle that tile value in the db and set use state
 	return 	<div style={{height: '100%'}}>
-		<div style={{height: '5%', textAlign: 'center', vertiicalAlign: 'middle', margin: '0px'}}><h1 style={{margin: '0px'}}>{bingo.title}</h1></div>
-			<BingoGrid bingoMatrix={bingoMatrix} />
+		<div style={{height: '5%', textAlign: 'center', vertiicalAlign: 'middle', margin: '0px', minHeight: '30px'}}><h1 style={{margin: '0px'}}>{bingo.title}</h1></div>
+			<BingoGrid id={id} bingoMatrix={bingoMatrix} />
 		</div>;	
 
 }

@@ -17,6 +17,10 @@
 	display: grid;
 }
 
+.BingoGrid * {
+	user-select: none;
+}
+
 .BingoGrid>div {
 	display: flex;
 	grid-column: 1/5;
