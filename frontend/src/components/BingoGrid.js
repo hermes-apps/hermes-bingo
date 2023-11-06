@@ -29,7 +29,7 @@ const BingoGrid = props => {
 
 	// Run this on load
 	useEffect(() => {
-		createBingoMatrix(props.bingo.tiles); // TODO: Move this to BingoGrid.js
+		createBingoMatrix(props.bingo.tiles); 
 	}, []); // empty dependencies array
 
 	// Return the 5x5 grid
