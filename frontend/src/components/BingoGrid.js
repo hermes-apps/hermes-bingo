@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import BingoDataService from '../services/BingoDataService';
 
 import './BingoGrid.css';
 
