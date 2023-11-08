@@ -91,8 +91,9 @@ exports.update = (req, res) => {
 
 	const id = req.params.id;
 
-	Bingo.findByIdAndUpdate(id, req.body, {useFindAndModify: false})
+	Bingo.findByIdAndUpdate(id, req.body)
 		.then(data => {
+			console.log(data);
 			if (!data) res.status(404).send({message: `Couldn't find Bingo: ${id}`});
 			else res.send({nmessage: `Succesfully updated Bingo: ${id}`});
 		})
