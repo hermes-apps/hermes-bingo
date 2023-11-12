@@ -12,7 +12,7 @@
 }
 
 .Tile__Text {
-	background-color: #545454;
+	background-color: rgba(54, 54, 54, 0.8);
 	width: auto;
 	height: auto;
 	border-radius: 20px;
