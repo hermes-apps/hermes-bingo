@@ -74,7 +74,7 @@ const ControlPanel = (props) => {
 		<ul>
 			<li><h1>Control Panel</h1></li>
 			<li><input value={newBingoName} onChange={e => setNewBingoName(e.target.value)}/> <Button onClick={createBingo}>Create Bingo</Button></li>
-			<li><input value={keyword} onChange={e => setKeyword(e.target.value)}/><Button onClick={deleteBingos}>Delete Bingos</Button></li>
+			<li><input value={keyword} onChange={e => setKeyword(e.target.value)}/> <Button onClick={deleteBingos}>Delete Bingos</Button></li>
 		</ul>
 			<div className="BingoSheetList"><BingoSheetList bingoSheets={bingoList}/></div>
 	</>;
