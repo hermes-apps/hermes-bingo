@@ -10,6 +10,7 @@ const ControlPanel = (props) => {
 	const [keyword, setKeyword] = useState();
 	const [newBingoName, setNewBingoName] = useState();
 
+	// TODO: Beautify this page a bit more, specially spacings and such
 	// Run this on load
 	useEffect(() => {
 		listBingos();
