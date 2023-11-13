@@ -59,7 +59,7 @@ const BingoGrid = props => {
 	return <div className="BingoGrid">
 		{bingoMatrix.map((row, index) => 
 			<div key={index} className={`BingoGrid__Row--${index}`}>{bingoMatrix[index].map(tile =>
-			<div key={tile.id} className="BingoGrid__Row__Tile" onClick={() => handleClick(tile.id)} style={{backgroundColor: props.bingo.tiles[tile.id].status ? '#636363' : '#141414'}}><span className="Tile__Text">{tile.text}</span>
+			<div key={tile.id} className="BingoGrid__Row__Tile" onClick={() => handleClick(tile.id)} style={{backgroundColor: props.bingo.tiles[tile.id].status ? '#ED7D31' : null}}><span className="Tile__Text">{tile.text}</span>
 				</div>
 			)}
 			</div>
