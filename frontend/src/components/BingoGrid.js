@@ -8,11 +8,8 @@ const BingoGrid = props => {
 	const [bingo, setBingo] = useState();
 
 	function handleClick(tileIndex) {
-		// TODO: Add a API call to toggle the state of the clicked Tile
-		// TODO: Fix this no updating properly. The request gets sent to the backend, gets processed and even returns a message saying that it's updated. However I still get an http 404 response, so the then part of the code here doesn't process. Additionally, I console.log(data) in the back end and for some reason it showed for a moment before, but I can't get it to show now.
-		// day 2 of debugging: I found out that if you send the package through the network tab (by double clicking the failed package you get 404 on) it works.
 		let newBingo = bingo;
-		// Toggle the status
+		// Toggle the status  of the clicked tile
 		newBingo.tiles[tileIndex].status = !newBingo.tiles[tileIndex].status;
 		setBingo(bingo);
 		console.log(bingo);
