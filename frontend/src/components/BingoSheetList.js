@@ -8,7 +8,7 @@ const HandleCopyClick = (id) => (event) =>  {
 const BingoSheetList = (props) => {
 
 	return 	<ul>
-		{!props.bingoSheets ? <li>List is empty</li> : props.bingoSheets.map(bingo => <li className={`BingoSheetList__BingoSheet--${bingo._id}`} onClick={HandleCopyClick(bingo._id)}><b>{bingo.title}</b><div style={{display: 'flex'}}>http://{process.env.REACT_APP_IP}:3000/bingo/{bingo._id}</div></li>)}
+		{!props.bingoSheets ? <li>List is empty</li> : props.bingoSheets.map(bingo => <li className={`BingoSheetList__BingoSheet--${bingo._id}`} onClick={HandleCopyClick(bingo._id)}><b>{bingo.title} </b><div style={{display: 'inline-block'}}>http://{process.env.REACT_APP_IP}:3000/bingo/{bingo._id}</div></li>)}
 		</ul>;
 }
 

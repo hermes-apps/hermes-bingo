@@ -12,14 +12,21 @@ const BingoGrid = props => {
 		// Toggle the status  of the clicked tile
 		newBingo.tiles[tileIndex].status = !newBingo.tiles[tileIndex].status;
 		setBingo(bingo);
-		console.log(bingo);
 		BingoDataService.update(props.id, bingo)
 			.then(res => { 
-				console.log(res);
-				createBingoMatrix(bingo);
-				alert(`You updated tile #${tileIndex} to ${bingo[tileIndex].status}`);
+				createBingoMatrix(bingo.tiles);
 			})
-			.catch(err => console.log(err));
+			.catch(err => {
+				if (err.response) {
+					console.log(err.response.data);
+					console.log(err.response.header);
+				} else if (err.request) {
+					console.log(err.request);
+				} else {
+					console.log(err.message);
+				}
+				console.log(err.config);
+			});
 	}
 
 	// Function that turns the tiles attribute of the Bingo object into the bingoMatrix 2d array
@@ -49,7 +56,7 @@ const BingoGrid = props => {
 	return <div className="BingoGrid">
 		{bingoMatrix.map((row, index) => 
 			<div key={index} className={`BingoGrid__Row--${index}`}>{bingoMatrix[index].map(tile =>
-			<div key={tile.id} className="BingoGrid__Row__Tile" onClick={() => handleClick(tile.id)} style={{backgroundColor: props.bingo.tiles[tile.id].status ? 'red' : '#2B2B2B'}}>{tile.text}
+			<div key={tile.id} className="BingoGrid__Row__Tile" onClick={() => handleClick(tile.id)} style={{backgroundColor: props.bingo.tiles[tile.id].status ? '#ED7D31' : null}}><span className="Tile__Text">{tile.text}</span>
 				</div>
 			)}
 			</div>

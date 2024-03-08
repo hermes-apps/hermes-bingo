@@ -1,14 +1,23 @@
 .BingoGrid__Row__Tile {
-	background-color: #2B2B2B;
+	background-color: #B0A695;
 	text-align: center;
 	display: flex;
 	align-items: center;
 	vertical-align: middle;
 	justify-content: center;
 	width: 20%;
-	margin: 10px;
+	margin: 5px;
 	overflow: hidden;
 /*	border-radius: 10px;*/
+}
+
+.Tile__Text {
+	background-color: rgba(00, 00, 00, 0.7);
+	width: 65%;
+	height: auto;
+	border-radius: 20px;
+	padding: 5px 10px;
+	font-weight: bold;
 }
 
 .BingoGrid {

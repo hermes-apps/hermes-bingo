@@ -93,9 +93,9 @@ exports.update = (req, res) => {
 
 	Bingo.findByIdAndUpdate(id, req.body)
 		.then(data => {
-			console.log(data);
+			console.log(`Updated status of ${req.body.title}.`);
 			if (!data) res.status(404).send({message: `Couldn't find Bingo: ${id}`});
-			else res.send({nmessage: `Succesfully updated Bingo: ${id}`});
+			else res.send({message: `Succesfully updated Bingo: ${id}`});
 		})
 		.catch(err => {
 			console.log(err.message);

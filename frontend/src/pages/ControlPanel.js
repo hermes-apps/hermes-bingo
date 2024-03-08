@@ -10,6 +10,7 @@ const ControlPanel = (props) => {
 	const [keyword, setKeyword] = useState();
 	const [newBingoName, setNewBingoName] = useState();
 
+	// TODO: Beautify this page a bit more, specially spacings and such
 	// Run this on load
 	useEffect(() => {
 		listBingos();
@@ -70,14 +71,13 @@ const ControlPanel = (props) => {
 			});
 	}
 	
-	return <>
-		<ul>
-			<li><h1>Control Panel</h1></li>
-			<li><input value={newBingoName} onChange={e => setNewBingoName(e.target.value)}/> <Button onClick={createBingo}>Create Bingo</Button></li>
-			<li><input value={keyword} onChange={e => setKeyword(e.target.value)}/><Button onClick={deleteBingos}>Delete Bingos</Button></li>
-		</ul>
+	return <div style={{height: '100%', textAlign: 'center'}}>
+		<br /><div style={{fontWeight: 'bold', fontSize: '24px'}}> Control Panel </div><br />
+		<input value={newBingoName} onChange={e => setNewBingoName(e.target.value)}/> <Button onClick={createBingo}>Create Bingo</Button><br />
+		<input value={keyword} onChange={e => setKeyword(e.target.value)}/> <Button onClick={deleteBingos}>Delete Bingos</Button><br />
+		<br />
 			<div className="BingoSheetList"><BingoSheetList bingoSheets={bingoList}/></div>
-	</>;
+	</div>;
 }
 
 export default ControlPanel;

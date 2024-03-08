@@ -9,7 +9,7 @@ module.exports = app => {
 	// Retrieve by id
 	router.get("/:id", bingosheets.findOne);
 	// Update by id
-	router.post("/:id", bingosheets.update);
+	router.put("/:id", bingosheets.update);
 	// Delete by id
 	router.delete("/:id", bingosheets.delete);
 	// Delete all
